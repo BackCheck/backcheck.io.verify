@@ -302,11 +302,11 @@ class SAPConfig {
         
         // Load environment-specific configuration
         $envConfig = $this->getEnvironmentConfig();
-        $this->config = array_merge_recursive($this->config, $envConfig);
+        $this->config = $this->mergeConfigArrays($this->config, $envConfig);
         
         // Merge custom configuration
         if (!empty($customConfig)) {
-            $this->config = array_merge_recursive($this->config, $customConfig);
+            $this->config = $this->mergeConfigArrays($this->config, $customConfig);
         }
         
         // Load configuration from database if available
@@ -516,5 +516,43 @@ class SAPConfig {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
         
         $db->query($createQuery);
+    }
+    
+    /**
+     * Merge configuration arrays properly (override instead of append)
+     * 
+     * @param array $array1 Base array
+     * @param array $array2 Override array
+     * @return array Merged array
+     */
+    private function mergeConfigArrays($array1, $array2) {
+        foreach ($array2 as $key => $value) {
+            if (is_array($value) && isset($array1[$key]) && is_array($array1[$key])) {
+                // For associative arrays, merge recursively
+                if ($this->isAssociativeArray($value) && $this->isAssociativeArray($array1[$key])) {
+                    $array1[$key] = $this->mergeConfigArrays($array1[$key], $value);
+                } else {
+                    // For indexed arrays, replace entirely
+                    $array1[$key] = $value;
+                }
+            } else {
+                // Replace scalar values
+                $array1[$key] = $value;
+            }
+        }
+        return $array1;
+    }
+    
+    /**
+     * Check if array is associative
+     * 
+     * @param array $array Array to check
+     * @return bool Is associative
+     */
+    private function isAssociativeArray($array) {
+        if (!is_array($array) || empty($array)) {
+            return false;
+        }
+        return array_keys($array) !== range(0, count($array) - 1);
     }
 }

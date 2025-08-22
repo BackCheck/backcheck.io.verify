@@ -28,7 +28,9 @@ class SAPDataService {
     public function __construct($config, $authHandler) {
         $this->config = $config;
         $this->authHandler = $authHandler;
-        $this->apiBaseUrl = $config->getApiBaseUrl() . '/' . $config->getApiVersion();
+        $baseUrl = $config->getApiBaseUrl();
+        $version = $config->getApiVersion();
+        $this->apiBaseUrl = $baseUrl . '/' . $version;
     }
     
     /**
