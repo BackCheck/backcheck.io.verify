@@ -122,13 +122,18 @@ For detailed installation instructions, see [INSTALLATION.md](INSTALLATION.md)
 
 ## 📚 Documentation
 
-- **[Installation Guide](INSTALLATION.md)** - Complete setup instructions
-- **[Architecture Documentation](ARCHITECTURE.md)** - Technical architecture details
-- **[API Documentation](API_DOCUMENTATION.md)** - API endpoints and usage
-- **[User Guide](USER_GUIDE.md)** - User roles, features, and workflows
-- **[Configuration Guide](CONFIGURATION.md)** - System configuration options
-- **[Integration Guide](INTEGRATIONS.md)** - Third-party integration setup
-- **[Development Guide](DEVELOPMENT.md)** - Development guidelines and best practices
+> **[📖 Complete Documentation Index](DOCS_INDEX.md)** - Quick access to all documentation
+
+### Core Documentation
+- **[Installation Guide](INSTALLATION.md)** - Complete setup instructions (13 KB)
+- **[Architecture Documentation](ARCHITECTURE.md)** - Technical architecture details (23 KB)
+- **[API Documentation](API_DOCUMENTATION.md)** - API endpoints and usage (17 KB)
+- **[User Guide](USER_GUIDE.md)** - User roles, features, and workflows (16 KB)
+- **[Configuration Guide](CONFIGURATION.md)** - System configuration options (15 KB)
+- **[Integration Guide](INTEGRATIONS.md)** - Third-party integration setup (18 KB)
+- **[Development Guide](DEVELOPMENT.md)** - Development guidelines and best practices (18 KB)
+
+**Total**: 8 comprehensive guides | ~128 KB of documentation | Last Updated: 2026-02-15
 
 ## 👥 User Roles
 
